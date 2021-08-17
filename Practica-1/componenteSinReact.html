@@ -21,13 +21,57 @@
         opacity: 0.3;
       }
     </style>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   </head>
   <body>
     <h1>Practica 1</h1>
 
     <div id="app"></div>
 
+    <script type="text/babel">
+      const $app = document.getElementById("app");
+      //const h = React.createElement;
+      const useState = React.useState;
+
+      const Avatar = (props) => {
+        const [enabled, setEnabled] = useState(true);
+        const src = `https://randomuser.me/api/portraits/women/${props.id}.jpg`;
+
+        const className = enabled ? "" : "disabled";
+
+        return (
+          <picture>
+            <img
+              onClick={() => setEnabled(!enabled)}
+              className={className}
+              src={src}
+            />
+            <span>{props.name}</span>
+          </picture>
+        );
+      };
+
+      ReactDOM.render(
+        <div>
+          <Avatar id={10} name="Ana" />
+          <Avatar id={21} name="Random" />
+        </div>,
+        //h("div", null, [h(Avatar, { id: 3 }), h(Avatar, { id: 4 })]),
+        $app
+      );
+    </script>
     <script>
+      //!componente creado a pelo en html
+      /*
+      
       const $app = document.getElementById("app");
       const Avatar = (params) => {
         const src = `https://randomuser.me/api/portraits/women/${params.id}.jpg`;
@@ -46,7 +90,8 @@
         img.addEventListener("click", () => {
           img.classList.toggle("disabled");
         });
-      });
+      });^
+      */
     </script>
   </body>
 </html>
