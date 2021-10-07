@@ -1,0 +1,54 @@
+<!-- //! JS necesario para que sea mas sencillo React -->
+
+<script>  
+
+//? Template Literals
+
+    const nombre = "Diego"
+    const apellido = "Marty"
+
+    //estos dos console logs imprimen lo mismo, Pero el segundo es mas facil de usar
+    console.log(nombre + " " + apellido)
+    console.log(`${nombre} ${apellido}`)
+
+    // EN react 
+    const backgroundColor = ''
+    function componenteTemplateLiterals ({backgroundColor}){
+        /* - esta comentado porque da error */
+        //return (<div className={`bg-color-${backgroundColor}`}>Pyro</div>)
+    }
+    
+
+//? Shorthand property names
+
+    const nombre2 = "Diego"
+    const apellido2 = "Marty"
+    const edad = 25
+
+    // objeto sin Shorthand
+    const persona1 = {
+        nombreNoShorthand: nombre2,
+        apellidoNoShorthand: apellido2,
+        edadNoShorthand: edad,
+    }
+
+    console.log(persona1)
+    
+    // objeto Con Shorthand
+    const persona2 = {
+        nombre2,
+        apellido2,
+        edad,
+    }
+
+    console.log(persona2)
+
+    //En React
+
+    function componenteShorthand ({initialState, totalCount}){
+        const [state, setState] = useState({initialState, totalCount})
+    }
+
+
+
+</script>
